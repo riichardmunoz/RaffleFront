@@ -1,0 +1,89 @@
+.bloqueTipografia {
+    background: #F3F3F366;
+    border: 1px solid #7676764D;
+    border-radius: 4px;
+    padding: 20px;
+    height: 197px;
+    width: 130px;
+    color: #747575;
+    text-align: center;
+    h1 {
+        border-bottom: 1px solid #7676764D;
+    }
+}
+
+.tipoH {
+    color: #747575;
+    font-size: var(--size-small);
+}
+
+h1 {
+    font-size: var(--size-display-1);
+}
+
+h2 {
+    font-size: var(--size-display-2);
+}
+
+h3 {
+    font-size: var(--size-display-3);
+}
+
+h4 {
+    font-size: var(--size-display-4);
+}
+
+h5 {
+    font-size: var(--size-display-5);
+}
+
+ul.titulos {
+    list-style: auto;
+}
+
+p {
+    font-size: var(--size-normal);
+}
+
+.r-text-normal {
+    font-size: var(--size-normal);
+}
+
+.r-text-medium {
+    font-size: var(--size-medium);
+}
+
+.r-text-small {
+    font-size: var(--size-small);
+}
+
+.r-mask {
+    clip-path: polygon(0 171.5px, 171.5px 0, 100% 0, 100% calc(100% - 80px), calc(100% - 104.62px) 100%, 0 100%, 0 171.5px);
+    padding: 50px;
+    padding-left: 190px;
+    padding-bottom: 100px;
+    @include media(lg){
+        padding-top: 30px;
+        padding-right: 30px;
+        padding-bottom: 80px;
+    }
+    &--primary {
+        background-color: var(--color-primary);
+    }
+    &--accent {
+        background-color: var(--color-secondary);
+    }
+    p, span, a {
+        font-size: var(--size-display-1);
+        line-height: calc(var(--size-display-1) + 4px);
+        font-weight: bold;
+        @include media(lg){
+            font-size: var(--size-display-2);
+            line-height: calc(var(--size-display-2) + 4px);
+        }
+        @include media(sm){
+            font-size: var(--size-display-3);
+            line-height: calc(var(--size-display-3) + 4px);
+        }
+    }
+}

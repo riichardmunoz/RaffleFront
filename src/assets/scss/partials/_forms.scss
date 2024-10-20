@@ -1,0 +1,86 @@
+.r-form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    &__condiciones{
+        font-size: 10px;
+        text-align: justify;
+        color: var(--color-black);
+        width: calc(100% - 12px);
+    }
+    input{
+        padding: 6px;
+        height: 40px;
+        width: 100%;
+        font-family: var(--font-family-text);
+        border: 1px solid var(--color-black);
+        font-size: 14px;
+    }
+    &__input {
+        &-50{
+            width: calc(50% - 10px);
+            margin: 5px;
+        }
+        &-100{
+            width: calc(100% - 10px);
+            margin: 5px;
+        }
+        &-icon-50{
+            width: calc(50% - 10px);
+            margin: 5px;
+        }
+        &-icon-100{
+            width: calc(100% - 6px);
+            margin: 5px;
+        }
+    }
+    &__container-icon{
+        position: relative;
+        [class*="ico"]{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            height: 20px;
+            left: 12px;
+        }
+        input {
+            padding-left: 35px;
+        }
+        .mat-datepicker-toggle button {
+            height: 100%;
+            left: 0;
+            .mat-button-focus-overlay, .mat-ripple:after {
+                border-radius: 0;
+            }
+        }
+        $h-input-mat-angular: 40px;
+        .mat-date-range-input-start-wrapper {
+            overflow: inherit;
+            min-height: $h-input-mat-angular;
+            width: 100%;
+            input {
+                border-right: none;
+                width: 100%;
+                text-align: center;
+            }
+        }
+        .mat-date-range-input-separator {
+            min-height: $h-input-mat-angular;
+            line-height: $h-input-mat-angular - 2;
+            border-top: var(--color-black) solid 1px;
+            border-bottom: var(--color-black) solid 1px;
+            opacity: 1;
+            margin: 0;
+        }
+        .mat-date-range-input-end-wrapper {
+            width: 100%;
+             input {
+                padding-left: 6px;
+                border-left: none;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}

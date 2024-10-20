@@ -1,0 +1,85 @@
+// Buttons 
+.r-btn {
+    padding: 0 24px;
+    height: var(--height-btn);
+    font-size: var(--size-normal);
+    line-height: var(--size-normal);
+    outline: none;
+    border: solid 1px;
+    transition: all ease 0.4s;
+    display: inline-flex;
+    align-items: center;
+    font-weight: bold;
+    &--min {
+        height: calc(var(--height-btn) - 15px);
+        font-size: var(--size-small);
+        line-height: var(--size-small);
+    }
+    &--ico {
+        width: var(--height-btn);
+        height: var(--height-btn);
+        line-height: var(--height-btn);
+        font-size: var(--size-display-5);
+        padding: 0;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        transition: all ease 0.4s;
+        outline: none;
+        border: solid 1px;
+    }
+    &--circle {
+        border-radius: calc(var(--height-btn) / 2);
+    }
+    &__accent {
+        background: var(--color-black);
+        color: var(--color-white);
+        border-color: transparent;
+        &:hover {
+            background: var(--color-white);
+            color: var(--color-secondary);
+            text-decoration: none;
+        }
+        &:focus {
+            background-color: var(--color-gray-50);
+            color: var(--color-white)
+        }
+    }
+    &__secondary {
+        background: var(--color-secondary);
+        color: var(--color-white);
+        border-color: var(--color-secondary);
+        &:hover {
+            background: var(--color-white);
+            color: var(--color-secondary);
+            border-color: var(--color-secondary);
+            text-decoration: none;
+        }
+        &:focus {
+            background-color: var(--color-secondary-focus);
+            color: var(--color-white)
+        }
+        &--outline {
+            background: var(--color-white);
+            color: var(--color-secondary);
+            border-color: var(--color-secondary);
+            &:hover {
+                background: var(--color-secondary);
+                color: var(--color-white);
+                border-color: var(--color-secondary);
+                text-decoration: none;
+            }
+            &:focus {
+                background-color: var(--color-secondary-focus);
+                color: var(--color-white)
+            }
+        }
+    }
+    &:disabled, &.disabled {
+        background: var(--color-gray-200);
+        color: var(--color-gray-50);
+        border-color: var(--color-gray-200);
+        cursor: inherit;
+    }
+}
+// End Buttons

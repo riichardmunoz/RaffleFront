@@ -1,0 +1,38 @@
+%structureMobileMenu {
+    padding: 20px 0;
+    margin: 0 auto;
+}
+
+//Basic Color
+:root {
+    --color-primary: #00984A;
+    --color-primary-2: #005E3B;
+    --color-primary-focus: #04db81;
+    --color-secondary: #f6863c;
+    --color-secondary-focus: #ea640b;
+    --color-informative: #f4faff;
+    --color-warning: #ffe600;
+    --color-error: #f63c3c;
+    --color-white: #fff;
+    --color-black: #2c2a29;
+    --color-gray-400: #f9fafb;
+    --color-gray-300: #f3f3f3;
+    --color-gray-200: #eaeaea;
+    --color-gray-100: #e2e2e3;
+    --color-gray-50: #afafaf;
+    --size-display-1: 40px;
+    --size-display-2: 32px;
+    --size-display-3: 28px;
+    --size-display-4: 25px;
+    --size-display-5: 22px;
+    --size-btn: 20px;
+    --size-normal: 18px;
+    --size-medium: 16px;
+    --size-small: 14px;
+    --font-family-title: "CIBFontSans", Arial;
+    --font-family-text: "Open Sans", Arial, sans-serif;
+    --height-item-menu: 45px;
+    --height-btn: 54px;
+    --height-wizard: 44px;
+    --shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+}

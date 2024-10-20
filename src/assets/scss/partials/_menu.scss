@@ -1,0 +1,100 @@
+%posSubMenu {
+    position: absolute;
+    left: 100%;
+    top: 0;
+}
+
+.r-menu {
+    background: var(--color-primary-2);
+    position: relative;
+    display: inline-block;
+    padding-top: 40px;
+
+    &__close {
+        color: var(--color-white);
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 10px;
+        cursor: pointer;
+        font-size: .8em;
+    }
+
+    ul,
+    ol {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            position: relative;
+        }
+    }
+
+    &__item {
+        display: inline-block;
+        min-height: var(--height-item-menu);
+        font-size: var(--size-small);
+        padding: 5px 30px;
+        color: var(--color-white);
+        text-decoration: none;
+        line-height: calc(var(--size-small) + 4);
+        width: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 5px 0;
+        height: auto;
+        display: flex;
+        align-items: center;
+
+        &--active {
+            background: var(--color-white);
+            border-left: var(--color-secondary) solid 4px;
+            color: var(--color-black);
+            font-weight: bold;
+            padding-left: 26px;
+
+            [class$="submenu"] & {
+                background: var(--color-gray-400);
+
+                &:hover {
+                    color: var(--color-black);
+                }
+            }
+        }
+
+        &:Hover {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--color-white);
+            text-decoration: none;
+        }
+    }
+
+    &__icon {
+        margin-right: 10px;
+        font-size: var(--size-display-5);
+        vertical-align: middle;
+    }
+
+    &__submenu {
+        @extend %posSubMenu;
+        background: var(--color-white);
+        min-width: 200px;
+        box-shadow: var(--shadow);
+
+        [class$="__item"] {
+            color: var(--color-black);
+        }
+    }
+
+    &__submenu-2 {
+        @extend %posSubMenu;
+        min-width: 200px;
+        background: var(--color-gray-200);
+
+        [class$="__item"] {
+            margin: 0;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+    }
+}

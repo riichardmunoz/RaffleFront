@@ -1,0 +1,54 @@
+button {
+    margin:10px 20px 10px 0px;
+}
+
+.r-dialog-content{
+    padding:0px;
+    overflow: hidden;
+    mat-dialog-container & {
+        flex-direction: column;
+        display: flex;
+    }
+}
+
+.r-dialog-content__title_box{
+    height: 40px;
+    border-bottom: 2px solid var(--color-secondary);
+}
+
+.r-dialog-content__title{
+    font-family: var(--font-family-title);
+    font-weight: 700;
+    padding: 0px 0px 0px 20px;
+    float: left;
+}
+
+.r-dialog-content__btn_close{
+    float: right;
+    padding: 5px 10px 0px 0px;
+    color: var(--color-secondary);
+}
+
+.r-dialog-content__typography{
+    font-family: var(--font-family-text);
+    margin: 20px;
+    align-items: center;
+    mat-dialog-container & {
+        margin: 20px 0;
+    }
+}
+
+.r-dialog-content__icon_box{
+    float: left;
+    &__icon{
+        font-size: 40px;
+        margin: 0 15px 0 0;
+    }
+    .success{
+        color: var(--color-primary);
+    }
+    .danger{
+        color: var(--color-secondary);
+    }
+}
+

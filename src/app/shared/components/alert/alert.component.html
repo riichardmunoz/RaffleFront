@@ -1,0 +1,16 @@
+<div class="wrapper-alert my-2" *ngIf="(alert$ |async) as alert">
+  <div class="card-success">
+    <div class="wrapper-icon" [ngClass]="{
+      'info': alert.isInfo(),
+      'error': alert.isError()
+    }">
+      <img *ngIf="alert.isInfo()" src="assets/images/svg/icon-alert-white.svg" alt="icon-alert">
+      <img *ngIf="alert.isError()" src="assets/images/svg/ico-notification-error.svg" alt="icon-alert">
+    </div>
+    <div class="wrapper-info">
+      <span class="title-info">
+        {{alert.message}}
+      </span>
+    </div>
+  </div>
+</div>

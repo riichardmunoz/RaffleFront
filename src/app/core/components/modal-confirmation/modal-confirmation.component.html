@@ -1,0 +1,20 @@
+<div class="wrapper-modal">
+  <div class="action-close">
+    <span mat-button mat-dialog-close class="r-dialog-content__btn_close material-icons icon-ic-error"
+      aria-label="Cerrar"></span>
+  </div>
+  <div>
+    <div class="r-dialog-content__text_box">
+      <div class="text-center">
+        <img class="mb-3" src="assets/images/svg/ico-warning.svg" alt="ico-help">
+        <h5 class="my-2 modal-title">
+          ¿Está seguro de realizar esta operación?
+        </h5>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper-actions">
+    <button class="btn-cancel" [mat-dialog-close]="false" mat-stroked-button>Cancelar</button>
+    <button [mat-dialog-close]="true" mat-raised-button color="green">Aceptar</button>
+  </div>
+</div>

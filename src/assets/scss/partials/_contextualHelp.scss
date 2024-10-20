@@ -1,0 +1,27 @@
+.r-contextual-help{
+    margin: 10px 0;
+    padding: 10px;
+    background: var(--color-gray-400);
+    border-left: var(--color-primary) solid 4px;
+    display: flex;
+    align-items: center;
+    
+    &__icon{
+        font-size: var(--size-display-1);
+        margin: 0 15px 0 0;
+        color: var(--color-secondary);
+      
+    }
+    &__content{
+        h3{
+            font-size: var(--size-small);
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+        p, ul{
+            color: var(--color-black);
+            font-size: var(--size-small);
+            margin-bottom: 5px;
+        }
+    }
+}

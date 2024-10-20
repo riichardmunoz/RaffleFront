@@ -1,0 +1,44 @@
+<div class="container mt-4 p-4 rounded shadow-sm bg-light">
+  <h3 class="text-primary mb-4">Asignar Número</h3>
+  <form (ngSubmit)="generateNumber()" #assignNumberForm="ngForm">
+    <div class="mb-3">
+      <label for="raffleSelect" class="form-label">Seleccionar Sorteo</label>
+      <select
+        id="raffleSelect"
+        class="form-select"
+        [(ngModel)]="selectedRaffle"
+        name="raffleSelect"
+        required
+      >
+        <option value="" disabled selected>Seleccione un sorteo</option>
+        <option [value]="'5A59FD69-F466-4CBE-CAE8-08DCF0933522'">
+          Sorteo de un Carro Mazda 0 Km
+        </option>
+        <option [value]="'4E39AFFE-4618-47ED-CAE9-08DCF0933522'">
+          Juego de 20 Millones de pesos
+        </option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="userSelect" class="form-label">Seleccionar Usuario</label>
+      <select
+        id="userSelect"
+        class="form-select"
+        [(ngModel)]="selectedUser"
+        name="userSelect"
+        required
+      >
+        <option value="" disabled selected>Seleccione un usuario</option>
+        <option [value]="'891C3E78-879C-48FD-7E7F-08DCF0933530'">
+          Juan Valderrama
+        </option>
+        <option [value]="'CF6E004E-E567-433C-7E80-08DCF0933530'">
+          Pedro Picapiedra
+        </option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-success mt-4">Generar número</button>
+  </form>
+</div>

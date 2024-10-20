@@ -1,0 +1,68 @@
+.r-table, table:not(.mat-calendar-table) {
+    border: var(--color-gray-100) solid 1px;
+    thead {
+        background-color: var(--color-gray-400);
+        font-family: var(--font-family-title);
+        font-size: var(--size-normal);
+    }
+    thead, tr {
+        border-bottom: var(--color-gray-100) solid 1px;
+        &:nth-child(even){
+            background-color: var(--color-gray-400);
+        }
+    }
+    th, td {
+        padding: 15px;
+    }
+    
+    td {
+        font-size: var(--size-medium);
+    }
+}
+
+.r-table-price{
+    border: var(--color-gray-100) solid 1px;
+    box-shadow: var(--shadow);
+    width: 350px;
+
+    thead {
+        background-color: var(--color-gray-400);
+        font-family: var(--font-family-title);
+        display: flex;
+        justify-content: center;
+    }
+    tr {        
+        
+        &:last-child{
+            display: flex;
+            justify-content: center;
+            padding-top: 11px;
+            padding-bottom: 26px;
+        }
+        &:nth-last-child(-n+2){
+            border-bottom:  none;
+        }
+        &:nth-child(even){
+            background-color: var(--color-white);
+        }
+    }
+
+    th, td {
+        padding: 15px 26px;
+        word-wrap: break-word;
+    }
+
+    td {
+        font-size: var(--size-medium);
+    }
+
+    td:before{
+    content: "\46";
+    color: var(--color-primary);
+    display: inline-block;
+    position: relative;
+    right: 5px;
+    font-size: 16px;
+    padding-right: 10px;
+    }
+}

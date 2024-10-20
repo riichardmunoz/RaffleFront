@@ -1,0 +1,389 @@
+.r-header {
+    $hTopResponsive: 80px;
+    $spaceElement: 24px;
+
+    @include media(sm) {
+        position: relative;
+        padding: 0;
+        box-shadow: var(--shadow);
+        height: $hTopResponsive;
+    }
+
+    &__logo {
+        width: 150px;
+
+        @include media(sm) {
+            width: 120px;
+            margin-left: 10px;
+            position: absolute;
+            top: $spaceElement;
+        }
+
+        &-svg {
+            fill: var(--color-primary);
+        }
+    }
+
+    &__menu {
+        margin-left: 20px;
+
+        @include media(sm) {
+            margin-left: 0;
+        }
+    }
+
+    &__menu,
+    &__social-media,
+    &__tools {
+        @include media(sm) {
+            display: none;
+        }
+
+        .open & {
+            display: block;
+        }
+    }
+
+    &__menu-mobile {
+        position: absolute;
+        right: 30px;
+        display: none;
+        width: 28px;
+        height: 28px;
+        top: $spaceElement + 6;
+        cursor: pointer;
+
+        @include media(sm) {
+            display: inline-block;
+        }
+
+        .svg-menu {
+            width: 28px;
+            fill: none;
+            stroke: var(--color-primary);
+            stroke-linecap: round;
+            stroke-miterlimit: 10;
+            stroke-width: 1.5px;
+
+            line {
+                transition: all ease-in-out .2s;
+            }
+        }
+    }
+
+    &__wrapper {
+        margin: 0 auto;
+        max-width: 1024px;
+        width: calc(100% - 30px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .open & {
+            display: block;
+        }
+    }
+
+    &__primary {
+        background: var(--color-primary);
+        color: var(--color-white);
+        padding: 18px 0;
+        font-size: var(--size-medium);
+
+        ul li a {
+            &:after {
+                background-color: var(--color-white);
+            }
+        }
+
+        [class$="__sub-menu"] {
+            ul li a {
+                &:after {
+                    background-color: var(--color-primary);
+                }
+            }
+        }
+
+        @include media(sm) {
+            padding: 0;
+            background: transparent;
+        }
+
+        .open & {
+            margin-top: $hTopResponsive;
+            border-bottom: solid 2px var(--color-white);
+            @extend %structureMobileMenu;
+        }
+    }
+
+    &__standar {
+        background: var(--color-white);
+        color: var(--color-black);
+        font-size: var(--size-normal);
+        padding: 22px 0;
+        box-shadow: var(--shadow);
+
+        @include media(sm) {
+            padding: 0;
+            background: transparent;
+            box-shadow: none;
+            color: var(--color-white);
+            font-size: var(--size-medium);
+        }
+
+        .open & {
+            @extend %structureMobileMenu;
+        }
+    }
+
+    &__tools {
+        .r-btn {
+            height: calc(var(--height-btn) - 10px);
+
+            @include media(sm) {
+                border-color: var(--color-white);
+            }
+        }
+
+        .open & {
+            margin-top: $hTopResponsive;
+            @extend %structureMobileMenu;
+        }
+    }
+
+    & &__social-media {
+        &-item {
+            margin: 5px 10px;
+
+            @include media(sm) {
+                display: inline-block;
+                margin: 5px 10px;
+            }
+
+            a {
+                color: currentColor;
+                display: inline-block;
+
+                &:after {
+                    display: none;
+                }
+
+                &:hover {
+                    opacity: 0.8;
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+
+    &__menu-item {
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+
+            [class*="__sub-menu"] {
+                right: 0;
+            }
+        }
+
+        margin:5px 20px;
+        color: currentColor;
+        font-weight: bold;
+
+        >a {
+            color: currentColor;
+            text-decoration: none;
+        }
+
+        &:hover [class*="__sub-menu"] {
+            opacity: 1;
+            visibility: visible;
+
+            @include media(sm) {
+                height: auto;
+            }
+        }
+
+        &:hover [class*="__ico-drop"] {
+            transform: rotate(135deg) translate(0px, 0px);
+
+            @include media(sm) {
+                transform: rotate(135deg) translate(10px, 10px);
+            }
+        }
+
+        @include media(sm) {
+            font-weight: normal;
+        }
+    }
+
+    &__sub-menu {
+        background-color: var(--color-white);
+        padding: 10px;
+        position: absolute;
+        color: var(--color-black);
+        font-weight: bold;
+        box-shadow: var(--shadow);
+        opacity: 0;
+        visibility: hidden;
+        z-index: 99;
+        top: 100%;
+        transition: all ease-in-out .2s;
+        min-width: 200px;
+
+        &-item {
+            font-weight: bold;
+
+            @include media(sm) {
+                font-weight: normal;
+                font-size: var(--size-small);
+            }
+        }
+
+        a {
+            color: currentColor;
+            padding: 10px;
+            display: inline-block;
+            text-decoration: none;
+
+            &:visited {
+                color: var(--color-gray);
+            }
+
+            &:hover {
+                color: var(--color-primary);
+
+                @include media(sm) {
+                    color: var(--color-white);
+                }
+            }
+        }
+
+        @include media(sm) {
+            position: inherit;
+            background: transparent;
+            box-shadow: none;
+            color: var(--color-white);
+            font-weight: normal;
+            min-width: auto;
+            height: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .open & ul li[class*="__sub-menu-item"] {
+            margin: 0;
+        }
+    }
+
+    &__ico-drop {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border: 1.5px solid transparent;
+        border-left-color: currentColor;
+        border-bottom-color: currentColor;
+        margin-left: 8px;
+        position: absolute;
+        left: calc(100% + 5px);
+        top: 5px;
+        bottom: 0;
+        transform-origin: center center;
+        cursor: pointer;
+        transform: rotate(-45deg) translate(5px, -4px);
+
+        @include media(sm) {
+            margin: 0;
+            transform: rotate(-45deg) translate(-10px, -10px)
+        }
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: inline-block;
+            position: relative;
+            max-width: 130px;
+            vertical-align: middle;
+
+            @include media(sm) {
+                display: block;
+                margin: 15px 0;
+                max-width: 100%;
+            }
+        }
+
+        a {
+            transition: all ease .2s;
+
+            &:after {
+                content: "";
+                display: block;
+                width: 0px;
+                height: 2px;
+                background-color: var(--color-primary);
+                transition: all ease-in-out .2s;
+
+                @include media(sm) {
+                    display: none;
+                }
+            }
+
+            &:hover {
+                text-decoration: none;
+
+                &:after {
+                    width: 100%;
+                }
+
+                @include media(sm) {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    &.open {
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-primary);
+        overflow: auto;
+
+        .r-header__logo-svg {
+            fill: var(--color-white)
+        }
+
+        .r-header__menu-mobile .svg-menu {
+            stroke: var(--color-white)
+        }
+
+        ul[class$="__social-media"] {
+            li {
+                display: inline-block;
+                margin: 5px 10px;
+            }
+        }
+
+        .svg-menu {
+            line:nth-child(1) {
+                transform: rotate(45deg) translate(2.5px, -1px);
+            }
+
+            line:nth-child(2) {
+                transform: rotate(-45deg) translate(-6.5px, 4.5px);
+            }
+
+            line:last-child {
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(10px);
+            }
+        }
+    }
+}

@@ -1,0 +1,97 @@
+ .mat-form-field.mat-focused .mat-form-field-label {
+   color: var(--color-primary) !important;
+ }
+
+ .mat-form-field.mat-focused .mat-form-field-ripple {
+   background-color: var(--color-primary);
+ }
+
+ .mat-form-field.mat-focused .mat-form-field-required-marker {
+   color: var(--color-primary);
+ }
+
+ .mat-form-field.mat-focused .mat-input-element {
+   color: var(--color-primary);
+ }
+
+
+ .mat-calendar-body-selected {
+   background-color: var(--color-primary);
+   color: var(--color-white);
+ }
+
+ .mat-button-wrapper {
+   svg {
+     font-size: 20px;
+     margin-left: 10px;
+   }
+
+ }
+
+ .mat-datepicker-toggle-active {
+   color: var(--color-primary);
+ }
+
+ .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+   color: var(--color-primary);
+ }
+
+ .mat-radio-button.mat-accent .mat-radio-inner-circle {
+   background-color: var(--color-primary);
+ }
+
+ .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+   border-color: var(--color-primary);
+ }
+
+ .mat-form-field-appearance-legacy .mat-form-field-suffix .mat-datepicker-toggle-default-icon {
+   color: var(--color-primary);
+ }
+
+ .mat-select-arrow {
+   color: var(--color-primary);
+ }
+
+ .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+   color: var(--color-primary);
+ }
+
+ .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+   color: var(--color-error);
+
+ }
+
+ .mat-form-field-required-marker {
+   color: var(--color-error);
+ }
+
+ .mat-form-field.mat-form-field-invalid .mat-form-field-label .mat-form-field-required-marker {
+   color: var(--color-error);
+ }
+
+ .mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
+ .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent {
+   background-color: var(--color-error);
+ }
+
+ .mat-form-field .mat-select.mat-select-invalid .mat-select-arrow {
+   color: var(--color-error);
+ }
+
+ .color-invalid {
+   color: var(--color-error);
+
+ }
+
+ .mat-checkbox-frame {
+   border-color: var(--color-border);
+ }
+
+ .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+ .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+   background-color: var(--color-primary);
+ }
+
+ .mat-checkbox {
+   font-weight: bold;
+ }

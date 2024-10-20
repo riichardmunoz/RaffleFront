@@ -1,0 +1,17 @@
+<div class="modal-body clearfix">
+    <div class="r-contextual-help" role="alert">
+        <span class="r-contextual-help__icon">
+            <span class="contextual-help__icon icon-ic-idea"></span>
+        </span>
+        <div class="r-contextual-help__content">
+            <p class="">{{content}} </p>
+        </div>
+    </div>
+</div>
+<div class="modal-footer" *ngIf="withBtnCancel || withBtnConfirm">
+    <button *ngIf="withBtnCancel" type="button" ngbAutofocus class="btn-secundary" (click)="cancel()">{{txtCancel ?
+        txtCancel:'Cerrar'}}</button>
+    <button *ngIf="withBtnConfirm" type="button" mat-raised-button color="green" class="btn-init"
+        (click)="confirm()">{{txtButton ?
+        txtButton:'Aceptar'}}</button>
+</div>

@@ -1,0 +1,112 @@
+pool:
+  name: Agentes-Kubernetes
+
+variables:
+  - group: Generic
+  - name: folder
+    value: .
+  - name: name
+    value: raffle
+  - ${{ if ne(variables['Build.SourceBranchName'], '*') }}:
+      - name: registry
+        value: $(RegistryNameDev)-$(system.teamProject)
+      - name: registryurl
+        value: $(RegistryDev)
+      - name: environment
+        value: dev
+      - name: dockerenv
+        value: build
+      - name: k8scluster
+        value: $(ClusterDev)-${{ variables['system.teamProject'] }}
+      - name: swaggerport
+        value: $(SwaggerPortDev)
+      - name: namespace
+        value: $(namespaceDev)
+  - ${{ if eq(variables['Build.SourceBranchName'], 'release') }}:
+      - name: registry
+        value: $(RegistryNameTest)-$(system.teamProject)
+      - name: registryurl
+        value: $(RegistryTest)
+      - name: environment
+        value: test
+      - name: dockerenv
+        value: buildqa
+      - name: k8scluster
+        value: $(ClusterTest)-${{ variables['system.teamProject'] }}
+      - name: swaggerport
+        value: $(SwaggerPortTest)
+      - name: namespace
+        value: $(namespaceTest)
+  - ${{ if eq(variables['Build.SourceBranchName'], 'master') }}:
+      - name: registry
+        value: $(RegistryNameProd)-$(system.teamProject)
+      - name: registryurl
+        value: $(RegistryProd)
+      - name: dockerenv
+        value: buildprod
+      - name: environment
+        value: prod
+      - name: k8scluster
+        value: $(CLusterProd)-${{ variables['system.teamProject'] }}
+      - name: namespace
+        value: $(namespaceProd)
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: Templates/_git/Pipeline-Templates
+      ref: master
+    - repository: helm_templates
+      type: git
+      name: Templates/_git/Helm-Templates
+      ref: master
+    
+stages:
+  - stage: CI
+    jobs:
+    - template: angular-ci-template.yaml@templates
+      parameters:
+        folder: $(folder)
+  - stage: docker_build_push_front
+    displayName: "docker ${{ variables.name }}"
+    condition: and(or(or(eq(variables['Build.SourceBranchName'], 'develop'),eq(variables['Build.SourceBranchName'], 'release')),eq(variables['Build.SourceBranchName'], 'master')), succeeded())
+    dependsOn: CI
+    jobs:
+      - template: angular-docker-template.yaml@templates
+        parameters:
+          registry: $(registry)
+          registryurl: $(registryurl)
+          folder: $(folder)
+          appname: ${{ variables.name }}
+          envarg: $(dockerenv)
+  - stage: k8s_deploy_front
+    displayName: "k8s deploy ${{ variables.name }}"
+    dependsOn: docker_build_push_front
+    variables:
+      - ${{ if eq(variables['Build.SourceBranchName'], 'develop') }}:
+        - name: helmvalues
+          value: 'project=$(system.teamProject),image.repository=$(RegistryDev)/$(name),image.tag=$(Build.SourceVersion),readinessProbe.enabled=false,imagePullSecret=secretregistrydev,fullnameOverride=$(name),resources.requests.memory=64Mi,autoscaling.enabled=false,releaseId=$(Build.BuildId),environment=$(environment),service.type=ClusterIP,ingress.enabled=true,ingress.hosts.path=/$(name)'
+      - ${{ if eq(variables['Build.SourceBranchName'], 'release') }}:
+        - name: helmvalues
+          value: 'project=$(system.teamProject),image.repository=$(RegistryTest)/$(name),image.tag=$(Build.SourceVersion),readinessProbe.enabled=false,imagePullSecret=secretregistrytest,fullnameOverride=$(name),resources.requests.memory=64Mi,autoscaling.enabled=false,releaseId=$(Build.BuildId),environment=$(environment),service.type=ClusterIP,ingress.enabled=true,ingress.hosts.path=/$(name)'
+      - ${{ if eq(variables['Build.SourceBranchName'], 'master') }}:
+        - name: helmvalues
+          value: 'project=$(system.teamProject),image.repository=$(RegistryProd)/$(name),image.tag=$(Build.SourceVersion),readinessProbe.enabled=false,imagePullSecret=secretregistry,fullnameOverride=$(name),resources.requests.memory=128Mi,autoscaling.enabled=false,releaseId=$(Build.BuildId),environment=$(environment),service.type=ClusterIP,ingress.enabled=true,ingress.hosts.path=/$(name)'
+    jobs:
+      - template: angular-kubernetes-template.yaml@templates
+        parameters:
+          k8scluster: ${{ variables.k8scluster }}
+          helmvalues: $(helmvalues)
+          namespace: $(namespace)
+          appname: ${{ variables.name }}
+          apptype: api
+  - stage: owasp_test
+    displayName: "Owasp test ${{ variables.name }}"
+    condition: and(or(eq(variables['Build.SourceBranchName'], 'develop'),eq(variables['Build.SourceBranchName'], 'release')), succeeded())
+    dependsOn: k8s_deploy_front
+    jobs:
+      - template: owasp-test-templaye.yaml@templates
+        parameters:
+          puerto: $(swaggerport)
+          prefijo_componente: ${{ variables.name }}
+          type: front

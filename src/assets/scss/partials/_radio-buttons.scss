@@ -1,0 +1,53 @@
+input[type="radio"] {
+    display: none;
+}
+input[type="radio"]+label{
+    cursor: pointer;
+    line-height: var(--size-display-2);
+}
+input[type="radio"]+ label:before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    float: left;
+    border-radius: 50%;
+    margin: 4.78px;
+    border: 1.5px solid var(--color-black);
+    background: var(--color-white);
+}
+input[type="radio"][class="r-radio__input--single-checked"]:checked + label:after {
+    content: "";
+    width: 12.5px;
+    height: 12.5px;
+    border: 1px solid var(--color-black);
+    border-radius: 50%;
+    background-color: var(--color-black);
+    float: left;
+    margin-left: -1.49em;
+    margin-top: 10.7px;
+    justify-content: center;
+    align-items: center;
+}
+input[type="radio"][class="r-radio__input--single-green-checked"] + label:before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    float: left;
+    border: 1.5px solid var(--color-primary);
+    border-radius: 50%;
+    margin: 4.78px;
+    background: var(--color-white);
+}
+input[type="radio"][class="r-radio__input--single-green-checked"]:checked + label:after {
+    content: "";
+    width: 12.5px;
+    height: 12.5px;
+    border: 1px solid var(--color-primary);
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    float: left;
+    margin-left: -1.49em;
+    margin-top: 10.7px;
+    justify-content: center;
+    align-items: center;        
+}

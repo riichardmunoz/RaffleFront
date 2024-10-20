@@ -1,0 +1,160 @@
+.r-banner {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    @include media(lg){
+        height: 350px;
+    }
+    @include media(sm){
+        height: 300px;
+    }
+    @include media(xs){
+        height: auto;
+        overflow: inherit;
+        position: inherit;
+    }
+    &__image {
+        text-align: center;
+        height: 100%;
+        @include media(xs){
+            height: 200px;
+        }
+        img {
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+    &__content {
+        position: absolute;
+        bottom: 0;
+        margin-left: 120px;
+        margin-bottom: 60px;
+        @include media(xlg) {
+            margin-left: 70px;
+            margin-bottom: 40px;
+        }
+        @include media(lg){
+            margin-left: 40px;
+        }
+        @include media(xs){
+            position:inherit;
+            margin: 0;
+        }
+        &:after {
+            width: 100%;
+            transform: skewX(-45deg);
+            height: 60px;
+            @include media(xlg) {
+                height: 40px;
+            }
+        }
+        &--basic {
+            height: 100%;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            [class*="__text-content"] {
+                background-color: transparent;
+                width: 430px;
+                @include media(lg){
+                    width: 320px;
+                }
+                @include media(md){
+                    width: 300px;
+                }
+                @include media(xs){
+                    width: auto;
+                }
+            }
+            .color--white {
+                @include media(xs){
+                    color: var(--color-black)
+                }
+            }
+        }
+        &--primary {
+            &:before, &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: calc(100% + 60px);
+                transform: skewX(-45deg);
+                transform-origin: right top;
+                background: var(--color-primary);
+                @include media(xlg) {
+                    height: calc(100% + 40px);
+                }
+                @include media(xs){
+                    display: none;
+                }
+            }
+            [class*="__text-content"]{
+                background: var(--color-primary);
+            }
+        }
+        &--white {
+            &:before, &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: calc(100% + 60px);
+                transform: skewX(-45deg);
+                transform-origin: right top;
+                background: var(--color-white);
+                @include media(xlg) {
+                    height: calc(100% + 40px);
+                }
+                @include media(xs){
+                    display: none;
+                }
+            }
+        }
+    }
+    &__text-content {
+        background-color: var(--color-white);
+        padding:  40px 40px 0 40px;
+        width: 380px;
+        position: relative;
+        z-index: 2;
+        @include media(xlg) {
+            padding: 30px 30px 0 30px;
+            width: 350px;
+        }
+        @include media(md) {
+            width: 300px;
+        }
+        @include media(xs){
+            width: 100%;
+            padding: 20px;
+        }
+    }
+    &__text {
+        font-size: var(--size-display-2);
+        line-height: calc(var(--size-display-2) + 4px);
+        font-family: var(--font-family-title);
+        margin-bottom: 28px;
+        span {
+            color: var(--color-primary);
+            [class$="--primary"] & {
+                color: var(--color-white);
+            }
+        }
+        @include media(xlg) {
+            font-size: var(--size-display-3);
+            line-height: calc(var(--size-display-3) + 4px);
+        }
+        @include media(md) {
+            font-size: var(--size-display-4);
+            line-height: calc(var(--size-display-4) + 4px);
+        }
+        @include media(xs){
+            font-size: var(--size-display-3);
+            line-height: calc(var(--size-display-4) + 4px);
+        }
+    }
+}

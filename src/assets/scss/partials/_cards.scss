@@ -1,0 +1,49 @@
+.r-card{
+  background-color: var(--color-white);
+  border: 0 solid var(--color-black);
+  margin-bottom: 30px;
+  color: var(--color-black);
+  &__title {
+      margin-bottom: 12px;
+      font-size: var(--size-display-5);
+      color: currentColor;
+      &--big {
+        font-size: var(--size-display-2);
+        margin-bottom: 7px;
+        color: currentColor;
+      }
+  }
+  &__text {
+      font-size: var(--size-normal);
+      &--small {
+        font-size: var(--size-small);
+      }
+  }
+  &__gral {
+    padding: 30px;
+  }
+  &__color {
+    &--green {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      text-align: center; 
+    }
+    &--gray {
+      background-color: var(--color-gray-300);
+    }
+    &--white {
+      background-color: var(--color-white); 
+    }
+  }
+  &__ico {
+    font-size: 55px;
+  }
+  img {
+    width: 100%;
+    object-fit: cover;
+    max-height: 148px;
+  }
+  &--shadow {
+    box-shadow: 0 5px 11px rgba(#000,0.1);    
+  }
+}

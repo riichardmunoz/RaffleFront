@@ -1,0 +1,61 @@
+.mat-calendar {
+    .mat-calendar-spacer {
+        display: none;
+    }
+
+    .mat-calendar-previous-button {
+        order: 1;
+    }
+
+    .mat-calendar-next-button {
+        order: 3;
+    }
+
+    .mat-calendar-period-button {
+        order: 2;
+        width: 100%;
+        .mat-button-wrapper {
+            font-weight: bold;
+        }
+    }
+
+    .mat-calendar-header {
+        border-bottom: solid 1px var(--color-black);
+    }
+    
+
+    .mat-calendar-controls {
+        margin-top: 1%;
+        margin-bottom: 1%;
+    }
+    .mat-calendar-table-header {
+        position: relative;
+        &:before {
+            content: "";
+            display: block;
+            width: calc(100% + 8px * 2);
+            height: calc(100% - 8px);
+            left: -8px;
+            right: -8px;
+            background: var(--color-gray-300);
+            position: absolute;
+            z-index: 1;
+        }
+        tr:first-child {
+            position: relative;
+            z-index: 2;
+            th {
+                padding: 8px 0;
+                color: var(--color-primary);
+                font-weight: bold;
+            }
+        }
+    }
+
+    .mat-datepicker-toggle, .mat-datepicker-content .mat-calendar-next-button, .mat-datepicker-content .mat-calendar-previous-button {
+        color: var(--color-black)
+    }
+    .mat-calendar-body-cell-content {
+        border-radius: 0;
+    }
+}

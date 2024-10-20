@@ -1,0 +1,111 @@
+.r-footer {
+    &__row {
+        display: flex;
+        @include media(md) {
+            display: block;
+        }
+    }
+    &__container {
+        &--web {
+            margin: 0 auto;
+            max-width: 1024px;
+            width: 95%;
+            @include media(md) {
+                max-width: 90%;
+            }
+        }
+    }
+    &__container-gral {
+        background-color: var(--color-primary);
+        padding: 40px 0;
+        &--web {
+            float: none; 
+            background-color: var(--color-primary);
+            padding: 40px 0;
+        }
+    }
+    &__menu {
+        border-bottom: 1px solid var(--color-white);
+        margin-bottom: 3rem;
+        text-align: center;
+        ul {
+            padding: 0;
+        }
+        li {
+            display: inline-block;
+            list-style: none;
+            padding: 10px;
+            a {
+                color: var(--color-white);
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    &__info-contacto--web {
+        color: var(--color-white);
+        margin-bottom: 1rem;
+        a {
+            color: var(--color-white);
+        }
+        ul {
+            padding: 0;
+        }
+        ul.r-footer__list-inline li {
+            display: inline-block;
+            padding-right: 6px;
+            a:hover {
+                text-decoration: none;
+            }
+        }
+        a.r-footer__tratamiento-datos {
+            text-decoration: underline;
+        }
+    }
+    &__logo-footer--web {
+        width: 260px;
+        @include media(lg){
+            width: 250px;
+        }
+        @include media(md){
+            width: 230px;
+            margin: 20px 0;
+        }
+        @include media(sm){
+            width: 200px;
+        }
+    }
+    &__logo {
+        @include media(md){
+            text-align: center;
+        }
+    }
+    &__Copyright--web {
+        text-align: center;
+        color: var(--color-white);
+        margin-bottom: 2rem;
+        span {
+            font-size: 13px;
+        }
+    }
+}
+
+
+ .r-footer__container--apps {
+    border-top: #ececec solid 1px;
+    text-align: center;
+    padding: 10px 0;
+    color: #b7ada8;
+    font-size: 12px;
+    background: var(--color-white);
+    position: relative;
+    z-index: 2;
+    i {
+        padding-right: 5px;
+        color: var(--color-primary);
+    }
+    a:hover {
+        text-decoration: none;
+    }
+}

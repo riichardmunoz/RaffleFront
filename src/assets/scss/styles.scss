@@ -1,0 +1,193 @@
+ @import "modules/mixins";
+ @import "modules/utility";
+ @import "modules/extend";
+
+ // Partials 
+ @import "partials/menu";
+ @import "partials/form-material";
+
+ @font-face {
+  font-family: Roobert-Light;
+  src: url("../fonts/Roobert-Bold.ttf");
+ }
+ html,
+ body {
+   height: 100%;
+ }
+
+ body {
+   margin: 0;
+ }
+
+
+ :root {
+
+   --color-primary: #01602a;
+   --background-button-primary: #78de1f;
+   --color-text-button-primary: #004521;
+   --color-primary-400: #004A34;
+   --color-primary-focus: #04db81;
+   --color-secondary: #004521;
+   --color-secondary-focus: #ea640b;
+   --color-informative: #f4faff;
+   --color-warning: #D3DB25;
+   --color-error: #9C1D2C;
+   --color-white: #fff;
+   --color-white-400: #F4F4F4;
+   --color-white-300: #f7f7f7;
+   --color-black: #000000;
+   --color-inprogress: #FE7924;
+   --color-success: #00984A;
+   --color-rejected: #9C1D2C;
+   --color-gray-400: #f9fafb;
+   --color-gray-300: #f3f3f3;
+   --color-gray-200: #eaeaea;
+   --color-gray-100: #D9D9D9;
+   --color-gray-50: #afafaf;
+   --color-gray: #666666;
+   --color-border: #E9E9E9;
+   --color-pink: #FE79241A;
+   --color-btn-disabled: #d9d9d9;
+   --size-display-1: 40px;
+   --size-display-2: 32px;
+   --size-display-3: 28px;
+   --size-display-4: 25px;
+   --size-display-5: 22px;
+   --size-display-6: 24px;
+   --size-display-7: 20px;
+   --size-btn: 20px;
+   --size-normal: 18px;
+   --size-medium: 16px;
+   --size-small: 14px;
+   --font-family-title: "Roobert-Light", Arial;
+   --font-family-text: "Open Sans", Arial, sans-serif;
+   --height-item-menu: 45px;
+   --height-btn: 54px;
+   --height-wizard: 44px;
+   --shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+   --shadow-100: 0px 0.1px 32px #0000001C;
+   --shadow-400: 0 3px 15px rgba(0, 0, 0, 0.15);
+   --background: rgba(255, 255, 255, 0.8);
+   --boder-radius-small: 6px;
+   --border-small: 0.1rem;
+ }
+
+ .content {
+   height: calc(100vh - 140px);
+
+ }
+
+ .grid {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: 1fr;
+   grid-column-gap: 20px;
+   grid-row-gap: 0px;
+
+   @media (min-width: 1400px) {
+     grid-column-gap: 70px;
+   }
+
+   @include media(lg) {
+     grid-template-columns: repeat(2, 1fr);
+     grid-column-gap: 20px;
+   }
+
+   @include media(md) {
+     grid-template-columns: repeat(1, 1fr);
+   }
+ }
+
+ .ng2-pdf-viewer-container {
+   overflow-x: hidden !important;
+   overflow-y: auto;
+
+   &::-webkit-scrollbar {
+     width: 4px;
+     height: 4px;
+     border-radius: 5px;
+   }
+
+   &::-webkit-scrollbar-thumb {
+     padding: 0 5px;
+     background: var(--color-gray-100);
+     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+   }
+ }
+
+
+ .btn-back {
+   border: none;
+   outline: none;
+   background-color: transparent;
+   color: var(--color-primary);
+
+   .icon-back {
+     margin-right: 5px;
+   }
+
+   span {
+     text-decoration: underline;
+   }
+ }
+
+ .modal-title {
+   font-size: 18px;
+ }
+
+ .r-table,
+ table:not(.mat-calendar-table) {
+   border: none;
+   border-radius: 4px;
+ }
+
+ .r-table thead,
+ .r-table tr,
+ table:not(.mat-calendar-table) thead,
+ table:not(.mat-calendar-table) tr {
+   border-bottom: none !important;
+ }
+
+ .btn-icon {
+   border: none;
+   outline: none;
+   background-color: transparent;
+ }
+
+ .wrapper-radio-group {
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 10px;
+ }
+
+ .card-info {
+   border: 1px solid var(--color-gray-100);
+   display: flex;
+   border-radius: var(--boder-radius-small);
+
+   .wrapper-icon {
+     background: var(--color-pink);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: 20px 30px;
+   }
+
+   .wrapper-info {
+     padding: 10px;
+
+     .title-info {
+       text-align: left;
+       font-size: 16px;
+     }
+   }
+ }
+
+
+ .flex {
+   display: flex;
+ }
+
+ .content-center {
+   justify-content: center;
+ }

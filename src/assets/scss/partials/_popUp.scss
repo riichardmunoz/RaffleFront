@@ -1,0 +1,42 @@
+.r-dialog-content__button{
+    padding-right: 18px;
+    float: right;
+}
+
+.r-dialog-content__title{
+    font-family: var(--font-family-title);
+    font-weight: 700;
+    padding: 5px 0px 0px 20px;
+    float: left;
+}
+
+.r-dialog-content__btn_close{
+    float: right;
+    padding: 4px 15px 0px 0px;
+    color: var(--color-secondary);
+}
+
+.r-dialog-content__typography{
+    font-family: var(--font-family-text);
+    margin: 20px;
+    align-items: center;
+}
+
+.r-dialog-content__icon_box{
+    float: left;
+&__icon{
+    font-size: 40px;
+    margin: 0 15px 0 0;
+}
+.success{
+    color: var(--color-primary);
+}
+.danger{
+    color: var(--color-secondary);
+}
+}
+
+.r-dialog-content__HTML{
+    box-shadow: 0px 5px 12px #0000001A;
+    padding-top: 10px;
+}
