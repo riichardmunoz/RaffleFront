@@ -3,7 +3,7 @@ Proyecto par la gestión de sorteos, creado en Angular 14, con NodeJs v 16.10.0,
 
 # Getting Started
 1.	Clonar el repositorio "RaffleFront" del boton "Clone" y la url HTTPS.
-2.	Una vez clonado localmente, ejecutar el comando 2npm install"
+2.	Una vez clonado localmente, ejecutar el comando "npm install"
 Nota: La version NodeJs es la 16.10.0.
 3.	Una vez instalado el ambiente, ejecutar con "npm start"
 
